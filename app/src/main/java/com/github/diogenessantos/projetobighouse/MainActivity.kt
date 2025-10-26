@@ -1,5 +1,6 @@
 package com.github.diogenessantos.projetobighouse
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -10,7 +11,6 @@ import com.github.diogenessantos.projetobighouse.model.Idolo
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var viewAdapter : RecyclerView
     private val listaAdapter: IdoloAdapter by lazy { IdoloAdapter(listOf()) }
 
 
@@ -20,7 +20,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         configureAdapter(listaAdapter)
-       
+
+        binding.floatingActionButton3.setOnClickListener {
+            startActivity(Intent(this , FormularioActivity::class.java))
+        }
 
     }
 

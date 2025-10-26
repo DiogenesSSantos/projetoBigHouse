@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/activity_formulario_fab_botaoVoltar"
+            android:text="VOLTAR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="25dp"
+            android:textColor="@color/black"
+            app:iconTintMode="add"
+            android:clickable="true"
+            android:backgroundTint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:icon="@drawable/inc_action_voltar"
+
+            />
+
+
+        <EditText
+
+            android:id="@+id/activity_formulario_editText_frase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:inputType="text"
+            android:backgroundTint="@color/purple_500"
+            android:hint="Frase"
+            android:padding="16dp"
+
+
+            app:layout_constraintStart_toStartOf="@id/activity_formulario_fab_botaoVoltar"
+            app:layout_constraintTop_toBottomOf="@id/activity_formulario_fab_botaoVoltar" />
+
+
+        <EditText
+            android:id="@+id/activity_formulario_editText_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/purple_500"
+            android:hint="Data"
+            android:inputType="date"
+            android:padding="16dp"
+
+
+            app:layout_constraintStart_toStartOf="@id/activity_formulario_editText_frase"
+            app:layout_constraintTop_toBottomOf="@id/activity_formulario_editText_frase" />
+
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/activity_formulario_fab_botaoSalvar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="25dp"
+            android:backgroundTint="@color/white"
+            android:clickable="true"
+            android:text="Adicionar"
+            android:textColor="@color/black"
+
+
+            app:iconTintMode="add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/activity_formulario_editText_data"
+            app:layout_constraintTop_toBottomOf="@id/activity_formulario_editText_data"
+
+            app:layout_constraintVertical_bias="0.485" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
+
