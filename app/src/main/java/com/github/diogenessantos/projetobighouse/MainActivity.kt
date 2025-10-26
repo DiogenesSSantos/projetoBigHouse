@@ -1,24 +1,17 @@
 package com.github.diogenessantos.projetobighouse
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.TextView
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.github.diogenessantos.projetobighouse.adapter.IdoloAdapter
 import com.github.diogenessantos.projetobighouse.databinding.ActivityMainBinding
-import com.github.diogenessantos.projetobighouse.ui.theme.ProjetobighouseTheme
+import com.github.diogenessantos.projetobighouse.model.Idolo
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var viewAdapter : RecyclerView
+    private val listaAdapter: IdoloAdapter by lazy { IdoloAdapter(listOf()) }
 
 
 
@@ -26,17 +19,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        configureAdapter(listaAdapter)
+       
 
-
-        binding.floatingActionButton3.setOnClickListener {
-            val intent : Intent = Intent(this, ListaActivity::class.java)
-            startActivity(intent)
-        }
     }
-
 
     override fun onResume() {
         super.onResume()
-
+        listaAdapter.notifique(listOf(Idolo("Seja vc mesmo" , "25/23/2025")))
     }
+    private fun configureAdapter(adapter: IdoloAdapter) {
+        binding.activityListaFraseRecyclerview.layoutManager = LinearLayoutManager(this)
+        binding.activityListaFraseRecyclerview.adapter = adapter
+    }
+
+
 }
